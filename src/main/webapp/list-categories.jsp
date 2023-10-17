@@ -1,4 +1,5 @@
-<%--
+<%@ page import="Entity.Category" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: pc
   Date: 17/10/2023
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html
         lang="en"
         class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
@@ -19,7 +21,7 @@
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-  <title>Account settings - Security | Vuexy - Bootstrap Admin Template</title>
+  <title>DataTables - Tables | Vuexy - Bootstrap Admin Template</title>
 
   <meta name="description" content="" />
 
@@ -47,11 +49,17 @@
   <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
   <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
-  <link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
+  <!-- Row Group CSS -->
+  <link rel="stylesheet" href="assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
+  <!-- Form Validation -->
   <link rel="stylesheet" href="assets/vendor/libs/@form-validation/umd/styles/index.min.css" />
 
   <!-- Page CSS -->
-  <link rel="stylesheet" href="assets/vendor/css/pages/page-account-settings.css" />
 
   <!-- Helpers -->
   <script src="assets/vendor/js/helpers.js"></script>
@@ -236,86 +244,174 @@
         <!-- Content -->
 
         <div class="container-xxl flex-grow-1 container-p-y">
-          <h4 class="py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Security</h4>
+          <h4 class="py-3 mb-4"><span class="text-muted fw-light">DataTables /</span> Basic</h4>
 
-          <div class="row">
-            <div class="col-md-12">
-              <ul class="nav nav-pills flex-column flex-md-row mb-4">
-                <li class="nav-item">
-                  <a class="nav-link" href="pages-account-settings-account.jsp"
-                  ><i class="ti-xs ti ti-users me-1"></i> Account</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="javascript:void(0);"
-                  ><i class="ti-xs ti ti-lock me-1"></i> Security</a
-                  >
-                </li>
-              </ul>
-              <!-- Change Password -->
-              <div class="card mb-4">
-                <h5 class="card-header">Change Password</h5>
-                <div class="card-body">
-                  <form id="formAccountSettings" method="POST" onsubmit="return false">
-                    <div class="row">
-                      <div class="mb-3 col-md-6 form-password-toggle">
-                        <label class="form-label" for="currentPassword">Current Password</label>
-                        <div class="input-group input-group-merge">
-                          <input
-                                  class="form-control"
-                                  type="password"
-                                  name="currentPassword"
-                                  id="currentPassword"
-                                  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                          <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                        </div>
+          <!-- DataTable with Buttons -->
+          <div class="card mb-4">
+            <h5 class="card-header">User List</h5>
+            <hr class="mt-0">
+            <div class="card-datatable text-nowrap">
+              <div class="card-datatable text-nowrap">
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                      <div class="dataTables_length" id="DataTables_Table_0_length">
+                        <label> Show
+                          <select wire:model="perPage" name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-select">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                          </select>
+                          entries
+                        </label>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="mb-3 col-md-6 form-password-toggle">
-                        <label class="form-label" for="newPassword">New Password</label>
-                        <div class="input-group input-group-merge">
-                          <input
-                                  class="form-control"
-                                  type="password"
-                                  id="newPassword"
-                                  name="newPassword"
-                                  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                          <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                        </div>
-                      </div>
-
-                      <div class="mb-3 col-md-6 form-password-toggle">
-                        <label class="form-label" for="confirmPassword">Confirm New Password</label>
-                        <div class="input-group input-group-merge">
-                          <input
-                                  class="form-control"
-                                  type="password"
-                                  name="confirmPassword"
-                                  id="confirmPassword"
-                                  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                          <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                        </div>
-                      </div>
-                      <div class="col-12 mb-4">
-                        <h6>Password Requirements:</h6>
-                        <ul class="ps-3 mb-0">
-                          <li class="mb-1">Minimum 8 characters long - the more, the better</li>
-                          <li class="mb-1">At least one lowercase character</li>
-                          <li>At least one number, symbol, or whitespace character</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                        <button type="reset" class="btn btn-label-secondary">Cancel</button>
+                    <div class="col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+                      <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                        <label>
+                          Search:
+                          <input wire:model.debounce.500ms="search" type="search" class="form-control" placeholder="" aria-controls="DataTables_Table_0" />
+                        </label>
                       </div>
                     </div>
-                  </form>
+                  </div>
+                  <div class="table-responsive" wire:init="loadData">
+                    <table class="datatables-ajax table dataTable no-footer" id="DataTables_Table_0"
+                           aria-describedby="DataTables_Table_0_info">
+                      <thead>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th aria-controls="DataTables_Table_0">Action</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <c:forEach items="${categories}" var="category">
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td><c:out value="${category.id}" /></td>
+                            <td><c:out value="${category.name}" /></td>
+                            <td>
+                              <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="<c:url value='/categories'>
+                                        <c:param name='action' value='edit' />
+                                        <c:param name='id' value='${category.id}' />
+                                      </c:url>"><i class="ti ti-pencil me-1"></i>Edit</a>
+                                  <a class="dropdown-item" href="<c:url value='/categories'>
+                                        <c:param name='action' value='delete' />
+                                        <c:param name='id' value='${category.id}' />
+                                      </c:url>"><i class="ti ti-trash me-1"></i>Delete</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </c:forEach>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-              <!--/ Change Password -->
             </div>
           </div>
+          <!-- Modal to add new record -->
+          <div class="offcanvas offcanvas-end" id="add-new-record">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
+              <button
+                      type="button"
+                      class="btn-close text-reset"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body flex-grow-1">
+              <form class="add-new-record pt-0 row g-2" id="form-add-new-record" onsubmit="return false">
+                <div class="col-sm-12">
+                  <label class="form-label" for="basicFullname">Full Name</label>
+                  <div class="input-group input-group-merge">
+                    <span id="basicFullname2" class="input-group-text"><i class="ti ti-user"></i></span>
+                    <input
+                            type="text"
+                            id="basicFullname"
+                            class="form-control dt-full-name"
+                            name="basicFullname"
+                            placeholder="John Doe"
+                            aria-label="John Doe"
+                            aria-describedby="basicFullname2" />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <label class="form-label" for="basicPost">Post</label>
+                  <div class="input-group input-group-merge">
+                    <span id="basicPost2" class="input-group-text"><i class="ti ti-briefcase"></i></span>
+                    <input
+                            type="text"
+                            id="basicPost"
+                            name="basicPost"
+                            class="form-control dt-post"
+                            placeholder="Web Developer"
+                            aria-label="Web Developer"
+                            aria-describedby="basicPost2" />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <label class="form-label" for="basicEmail">Email</label>
+                  <div class="input-group input-group-merge">
+                    <span class="input-group-text"><i class="ti ti-mail"></i></span>
+                    <input
+                            type="text"
+                            id="basicEmail"
+                            name="basicEmail"
+                            class="form-control dt-email"
+                            placeholder="john.doe@example.com"
+                            aria-label="john.doe@example.com" />
+                  </div>
+                  <div class="form-text">You can use letters, numbers & periods</div>
+                </div>
+                <div class="col-sm-12">
+                  <label class="form-label" for="basicDate">Joining Date</label>
+                  <div class="input-group input-group-merge">
+                    <span id="basicDate2" class="input-group-text"><i class="ti ti-calendar"></i></span>
+                    <input
+                            type="text"
+                            class="form-control dt-date"
+                            id="basicDate"
+                            name="basicDate"
+                            aria-describedby="basicDate2"
+                            placeholder="MM/DD/YYYY"
+                            aria-label="MM/DD/YYYY" />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <label class="form-label" for="basicSalary">Salary</label>
+                  <div class="input-group input-group-merge">
+                    <span id="basicSalary2" class="input-group-text"><i class="ti ti-currency-dollar"></i></span>
+                    <input
+                            type="number"
+                            id="basicSalary"
+                            name="basicSalary"
+                            class="form-control dt-salary"
+                            placeholder="12000"
+                            aria-label="12000"
+                            aria-describedby="basicSalary2" />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">Submit</button>
+                  <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--/ DataTable with Buttons -->
+
+          <hr class="my-5" />
         </div>
         <!-- / Content -->
 
@@ -386,18 +482,19 @@
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-<script src="assets/vendor/libs/select2/select2.js"></script>
+<script src="assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+<!-- Flat Picker -->
+<script src="assets/vendor/libs/moment/moment.js"></script>
+<script src="assets/vendor/libs/flatpickr/flatpickr.js"></script>
+<!-- Form Validation -->
 <script src="assets/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
 <script src="assets/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
 <script src="assets/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
-<script src="assets/vendor/libs/cleavejs/cleave.js"></script>
-<script src="assets/vendor/libs/cleavejs/cleave-phone.js"></script>
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 
 <!-- Page JS -->
-<script src="assets/js/pages-account-settings-security.js"></script>
-<script src="assets/js/modal-enable-otp.js"></script>
+<script src="assets/js/list-events.jsp.js"></script>
 </body>
 </html>
