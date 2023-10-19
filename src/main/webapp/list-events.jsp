@@ -1,5 +1,3 @@
-<%@ page import="Entity.Category" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html
@@ -64,7 +62,7 @@
 
 <body>
       <jsp:include page="header.jsp">
-        <jsp:param name="activePage" value="listCategories" />
+        <jsp:param name="activePage" value="listEvents" />
       </jsp:include>
       <!-- Content wrapper -->
       <div class="content-wrapper">
@@ -75,7 +73,7 @@
 
           <!-- DataTable with Buttons -->
           <div class="card mb-4">
-            <h5 class="card-header">Category List</h5>
+            <h5 class="card-header">Event List</h5>
             <hr class="mt-0">
             <div class="card-datatable text-nowrap">
               <div class="card-datatable text-nowrap">
@@ -112,34 +110,49 @@
                         <th></th>
                         <th>id</th>
                         <th>Name</th>
+                        <th>Description</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>category</th>
+                        <th></th>
                         <th aria-controls="DataTables_Table_0">Action</th>
                       </tr>
                       </thead>
                       <tbody>
-                        <c:forEach items="${categories}" var="category">
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td><c:out value="${category.id}" /></td>
-                            <td><c:out value="${category.name}" /></td>
-                            <td>
-                              <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="<c:url value='/categories'>
-                                        <c:param name='action' value='edit' />
-                                        <c:param name='id' value='${category.id}' />
-                                      </c:url>"><i class="ti ti-pencil me-1"></i>Edit</a>
-                                  <a class="dropdown-item" href="<c:url value='/categories'>
-                                        <c:param name='action' value='delete' />
-                                        <c:param name='id' value='${category.id}' />
-                                      </c:url>"><i class="ti ti-trash me-1"></i>Delete</a>
-                                </div>
+                      <c:forEach items="${events}" var="event">
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td><c:out value="${event.id}" /></td>
+                          <td><c:out value="${event.name}" /></td>
+                          <td><c:out value="${event.description}" /></td>
+                          <td><c:out value="${event.location}" /></td>
+                          <td><c:out value="${event.date}" /></td>
+                          <td><c:out value="${event.time}" /></td>
+                          <td><c:out value="${event.category.name}" /></td>
+                          <td>
+                            <div class="dropdown">
+                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="ti ti-dots-vertical"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<c:url value='/events'>
+                                  <c:param name='action' value='edit' />
+                                  <c:param name='id' value='${event.id}' />
+                                  </c:url>"><i class="ti ti-pencil me-1"></i>Edit
+                                </a>
+                                <a class="dropdown-item" href="<c:url value='/events'>
+                                  <c:param name='action' value='delete' />
+                                  <c:param name='id' value='${event.id}' />
+                                  </c:url>"><i class="ti ti-trash me-1"></i>Delete
+                                </a>
                               </div>
-                            </td>
-                          </tr>
-                        </c:forEach>
+                            </div>
+                          </td>
+                        </tr>
+                      </c:forEach>
+
                       </tbody>
                     </table>
                   </div>

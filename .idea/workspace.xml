@@ -10,20 +10,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7780076-0547-4e26-a8c7-c961421d160e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/f34tur3s_v1/CategoryServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/CategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/add-new-category.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/list-categories.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/update-category.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/Ticket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/TicketType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/f34tur3s_v1/EventServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/f34tur3s_v1/TicketServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/EventRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/TicketRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/EventService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/TicketService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/category-form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/event-form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/list-users.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/23ee1ee7-6dc0-463f-88aa-f96821939ac3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/23ee1ee7-6dc0-463f-88aa-f96821939ac3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/23ee1ee7-6dc0-463f-88aa-f96821939ac3/storage_v2/_src_/schema/f34tur3s.ijfrTA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/23ee1ee7-6dc0-463f-88aa-f96821939ac3/storage_v2/_src_/schema/f34tur3s.ijfrTA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/f34tur3s_v1/CategoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/f34tur3s_v1/CategoryServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/event.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/add-new-category.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/tables-datatables-basic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/tables-datatables-basic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/list-categories.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/list-categories.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages-account-settings-account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages-account-settings-account.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages-account-settings-security.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages-account-settings-security.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/update-category.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +50,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,10 +102,14 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pc\Downloads\newProject1\F34TUR3S_V1\src\main\webapp" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Downloads\newProject1\F34TUR3S_V1\src\main\webapp\category" />
+      <recent name="C:\Users\pc\Downloads\newProject1\F34TUR3S_V1\src\main\webapp" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.14" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.14" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="UPDATING_POLICY" value="hot-swap-classes" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="F34TUR3S_V1:war">
           <settings>
@@ -185,7 +207,15 @@
       <workItem from="1697450249234" duration="277000" />
       <workItem from="1697450536407" duration="6955000" />
       <workItem from="1697465079444" duration="5444000" />
-      <workItem from="1697522938973" duration="13003000" />
+      <workItem from="1697522938973" duration="25536000" />
+      <workItem from="1697577440275" duration="523000" />
+      <workItem from="1697578772863" duration="446000" />
+      <workItem from="1697579285733" duration="12000" />
+      <workItem from="1697579338486" duration="8013000" />
+      <workItem from="1697618000128" duration="15553000" />
+      <workItem from="1697701548654" duration="13029000" />
+      <workItem from="1697723650443" duration="1532000" />
+      <workItem from="1697725657674" duration="2005000" />
     </task>
     <servers />
   </component>

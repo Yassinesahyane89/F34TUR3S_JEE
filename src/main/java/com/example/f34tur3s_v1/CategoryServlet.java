@@ -30,7 +30,7 @@ public class CategoryServlet extends HttpServlet {
             Long categoryId = Long.parseLong(request.getParameter("id"));
             Category category = categoryService.getCategoryById(categoryId);
             request.setAttribute("category", category);
-            request.getRequestDispatcher("/update-category.jsp").forward(request, response);
+            request.getRequestDispatcher("/category-form.jsp").forward(request, response);
         } else if (action.equals("delete")) {
             // Delete the category by ID
             Long categoryId = Long.parseLong(request.getParameter("id"));
@@ -48,7 +48,6 @@ public class CategoryServlet extends HttpServlet {
             Category newCategory = new Category();
             newCategory.setName(categoryName);
             categoryService.createCategory(newCategory);
-            response.sendRedirect(request.getContextPath() + "/categories");
         } else if ("update".equals(action)) {
             // Update an existing category
             Long categoryId = Long.parseLong(request.getParameter("categoryId"));
@@ -56,7 +55,17 @@ public class CategoryServlet extends HttpServlet {
             String categoryName = request.getParameter("categoryName");
             category.setName(categoryName);
             categoryService.updateCategory(category);
-            response.sendRedirect(request.getContextPath() + "/categories");
         }
+        response.sendRedirect(request.getContextPath() + "/categories");
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPut(req, resp);
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doDelete(req, resp);
     }
 }

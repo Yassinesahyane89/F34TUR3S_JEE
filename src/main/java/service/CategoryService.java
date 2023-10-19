@@ -7,8 +7,12 @@ import repository.CategoryRepository;
 import java.util.List;
 
 public class CategoryService {
-    @Inject
-    private CategoryRepository categoryRepository = new CategoryRepository();
+
+    private final CategoryRepository categoryRepository;
+
+    public CategoryService() {
+        categoryRepository = new CategoryRepository();
+    }
 
     public void createCategory(Category category) {
         categoryRepository.save(category);
